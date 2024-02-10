@@ -1,0 +1,23 @@
+{
+  "name": "@hanaworks/mogu",
+  "version": "1.0.0",
+  "description": "Mogu is simple messenger api (non-official)",
+  "main": "src/index.js",
+  "repository": "https://github.com/miruchigawa/mogu",
+  "author": "miruchigawa (miruchigawa@outlook.jp)",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "@discordjs/collection": "^2.0.0",
+    "bluebird": "^2.11.0",
+    "https-proxy-agent": "^4.0.0",
+    "mqtt": "^4.2.8",
+    "npmlog": "^7.0.1",
+    "request": "^2.88.2",
+    "websocket-stream": "^5.5.0"
+  },
+  "devDependencies": {
+    "typedoc": "^0.25.8",
+    "typescript": "^5.3.3"
+  }
+}
