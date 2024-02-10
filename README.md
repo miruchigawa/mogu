@@ -58,3 +58,4 @@ schema auth file
 - *Note:* Use [c3c-fbstate](https://github.com/c3cbot/c3c-fbstate) to get auth file.
 
 ## Documentation
+[See here.](https://miruchigawa.github.io/mogu/)
