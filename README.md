@@ -1,5 +1,5 @@
 <div align="center">
-<img src="assets/icon.png" width="100px" alt="icon.png" />
+<img src="https://github.com/miruchigawa/mogu/blob/main/assets/icon.png" width="100px" alt="icon.png" />
 <h1>Mogu | simple messenger api (non-official) </h1>
 </div>
 
