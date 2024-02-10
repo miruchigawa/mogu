@@ -1,0 +1,9 @@
+[{
+     "key": "This only for example and typedoc",
+     "value": "Replace this file with your real cookies",
+     "domain": "string",
+     "path": "string",
+     "hostOnly": true,
+     "creation": "string",
+     "lastAccessed": "string"
+}]

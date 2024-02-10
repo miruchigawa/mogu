@@ -14,13 +14,13 @@ class Events {
           const name = MessageType[event.type]
           if (!name) return
           
-          if (!this.event.has(name)) console.warn(name)
-          else this.event.get(name).call(null, client, event)
+          if (!this.event.has(name)) return
+          this.event.get(name).call(null, client, event)
      }
      
      listen() {
           this.client.api.listenMqtt((e, v) => {
-               if (e) this.emit(EventType.Error, e)
+               if (e) this.client.emit(EventType.Error, e)
                else this.handle(this.client, v)
           })
           

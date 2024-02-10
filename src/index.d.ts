@@ -21,11 +21,16 @@ export type IOptionMessage = {
      reply?: boolean
 }
 
+export type IOnMessageCreate = {
+     user: User,
+     message: Message
+}
+
 export interface ClientEvents {
      ready: [client: Client<true>]
      error: [error: Error]
      typing: void
-     message: [message: { user: User, message: Message }]
+     message: [message: IOnMessageCreate]
      reply: void
      read: void
 }
