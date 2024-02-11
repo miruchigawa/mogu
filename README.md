@@ -40,7 +40,7 @@ client.login(auth)
 
 schema auth file
 
-```json
+```ts
 [
      {
           key: string
