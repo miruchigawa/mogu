@@ -1,4 +1,5 @@
 const EventEmitter = require("events")
+const NodeCache = require("node-cache")
 const login = require("./lib/index")
 const Me = require("./Structures/Me")
 const Events = require("./Events")
@@ -19,6 +20,7 @@ class Client extends EventEmitter{
                online: option.online ?? true,
                selfListen: option.selfListen ?? true
           }
+          this.users = new NodeCache()
      }
      
      async login(auth, forceLogin=false) {

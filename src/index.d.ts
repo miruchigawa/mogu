@@ -1,3 +1,5 @@
+import NodeCache from "node-cache"
+
 export type If<T extends boolean, A, B = null> = T extends true ? A : T extends false ? B : A | B
 
 export type ClientOptions = {
@@ -41,6 +43,12 @@ export interface ClientEvents {
 export class Client<Ready extends boolean = boolean> {
      constructor(options?: ClientOptions)
      public options: ClientOptions
+     
+     /**
+      * User cache
+      * @type { NodeCache }
+      */
+      public users: NodeCache
      
      /**
       * Client information
