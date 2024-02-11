@@ -31,7 +31,7 @@ client.on(EventType.Ready, (event) => {
      console.log(`Logged as @${event.me.username}`)
 })
 
-client.on(EventType.Error, (error) => {
+client.on(EventType.Disconnected, (error) => {
      console.error(error)
 })
 
