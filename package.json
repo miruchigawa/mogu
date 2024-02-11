@@ -1,6 +1,6 @@
 {
   "name": "@hanaworks/mogu",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Mogu is simple messenger api (non-official)",
   "main": "src/index.js",
   "repository": "https://github.com/miruchigawa/mogu",
@@ -12,6 +12,7 @@
     "bluebird": "^2.11.0",
     "https-proxy-agent": "^4.0.0",
     "mqtt": "^4.2.8",
+    "node-cache": "^5.1.2",
     "npmlog": "^7.0.1",
     "request": "^2.88.2",
     "websocket-stream": "^5.5.0"
