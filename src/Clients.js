@@ -2,6 +2,7 @@ const EventEmitter = require("events")
 const login = require("./lib/index")
 const Me = require("./Structures/Me")
 const Events = require("./Events")
+const EventsType = require("./Enums/Events")
 
 class Client extends EventEmitter{
      constructor(option = {

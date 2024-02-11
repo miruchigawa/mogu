@@ -107,19 +107,32 @@ function listenMqtt(defaultFuncs, api, ctx, globalCallback) {
 	);
 
 	var mqttClient = ctx.mqttClient;
-
+     
+     // When user lost connection from server or blocked
 	mqttClient.on('error', function (err) {
 		log.error('listenMqtt', err);
 		mqttClient.end();
-		if (ctx.globalOptions.autoReconnect) getSeqID();
-		else {
-			globalCallback(
-				{ type: 'stop_listen', error: 'Server error - Auto Restart' },
-				null,
-			);
-			return process.exit(1);
-		}
+		globalCallback(
+			null,
+			{
+			     type: 'disconnect',
+			     message: 'Client lost connection from server.'
+			}
+		);
 	});
+	
+	
+	// When user disconnect from server
+	mqttClient.on('close', function() {
+	     mqttClient.end();
+          globalCallback(
+               null,
+               {
+                    type: 'disconnect',
+                    message: 'Client disconnected from mqtt client'
+               }
+          )
+	})
 
 	mqttClient.on('connect', function () {
 		topics.forEach((topicsub) => mqttClient.subscribe(topicsub));
@@ -230,8 +243,6 @@ function listenMqtt(defaultFuncs, api, ctx, globalCallback) {
 			}
 		}
 	});
-
-	mqttClient.on('close', function () {});
 }
 
 function parseDelta(defaultFuncs, api, ctx, globalCallback, v) {

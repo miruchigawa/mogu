@@ -7,6 +7,7 @@ class Events {
           this.client = client
           this.event = new Collection()
           this.event.set("MessageCreate", require("./Events/MessageCreate"))
+          this.event.set("Disconnect", require("./Events/Disconnect"))
      }
      
      

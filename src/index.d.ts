@@ -26,9 +26,15 @@ export type IOnMessageCreate = {
      message: Message
 }
 
+export type IErrorMessage = {
+     type: 'disconnect' | 'close'
+     error: string
+}
+
 export interface ClientEvents {
      ready: [client: Client<true>]
-     error: [error: Error]
+     error: [error: IErrorMessage | Error]
+     disconnect: [error: string]
      typing: void
      message: [message: IOnMessageCreate]
      reply: void
@@ -79,6 +85,7 @@ export enum EventType {
      Ready = "ready",
      Error = "error",
      Typing = "typing",
+     Disconnect = "disconnect",
      MessageCreate = "message",
      MessageReply = "reply",
      MessageRead = "read"
