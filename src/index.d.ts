@@ -26,14 +26,11 @@ export type IOnMessageCreate = {
      message: Message
 }
 
-export type IErrorMessage = {
-     type: 'disconnect' | 'close'
-     error: string
-}
+export type IMessageContent = string
 
 export interface ClientEvents {
      ready: [client: Client<true>]
-     error: [error: IErrorMessage | Error]
+     error: [error: Error]
      disconnect: [error: string]
      typing: void
      message: [message: IOnMessageCreate]
@@ -84,6 +81,8 @@ export class Client<Ready extends boolean = boolean> {
 export class Message {
      constructor(client: Client, event: any)
      
+     public client: Client
+     
      /**
       * Sender information
       * @type { User }
@@ -120,7 +119,7 @@ export class Message {
       * @param {boolean} [reply] - Reply?
       * @returns {Promise<Message>}
       */
-     public async reply(message: any, reply?: boolean): Promise<Message>
+     public async reply(message: IMessageContent, reply?: boolean): Promise<Message>
      
      /**
       * Send message to
@@ -129,7 +128,7 @@ export class Message {
       * @param {IOptionMessage} [options] - Addional options
       * @returns {Promise<Message>}
       */
-     public async send(message: any, threadID: string, options?: IOptionMessage): Promise<Message>
+     public async send(message: IMessageContent, threadID: string, options?: IOptionMessage): Promise<Message>
      
      /**
       * Unsend message

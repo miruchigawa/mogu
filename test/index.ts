@@ -1,4 +1,4 @@
-import { Client, EventType, IErrorMessage } from "../src"
+import { Client, EventType } from "../src"
 import auth from "./cookies.json"
 
 function main() {
