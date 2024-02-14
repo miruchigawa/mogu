@@ -10,6 +10,7 @@ function main() {
           //console.log(event)
           if (event.message.content == ".nya"){
                const msg = await event.message.reply("nya.", false)
+               event.user.dm("nya.")
                setTimeout(function() {msg.unsend()}, 5000);
           }
      

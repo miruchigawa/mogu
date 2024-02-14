@@ -184,6 +184,13 @@ export class User {
       * @type { string }
       */
      public url: string
+     
+     /**
+      * Send a message to user dm
+      * @param { IMessageContent } message - Message content
+      * @returns { Promise<Message> }
+      */
+     public async dm(message: IMessageContent): Promise<Message>
 }
 
 export class Me extends User {
