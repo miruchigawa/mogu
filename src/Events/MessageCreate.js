@@ -13,5 +13,5 @@ module.exports = async function(client, events) {
      const user = client.users.get(events.senderID)
      const message = new Message(client, { user, ...events})
      
-     client.emit(EventType.MessageCreate, {user, message})
+     client.emit(EventType.MessageCreate, {user, message, client})
 }

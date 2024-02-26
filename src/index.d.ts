@@ -9,7 +9,7 @@ export type ClientOptions = {
      selfListen?: boolean
 }
 
-export type IAuth = {
+export interface IAuth {
      key: string
      value: string
      domain: string
@@ -19,23 +19,24 @@ export type IAuth = {
      lastAccessed: string
 }
 
-export type IOptionMessage = {
+export type OptionMessage = {
      reply?: boolean
 }
 
-export type IOnMessageCreate = {
+export type MSMessage = {
      user: User,
-     message: Message
+     message: Message,
+     client: Client<true>
 }
 
-export type IMessageContent = string
+export type MessageContent = string
 
 export interface ClientEvents {
      ready: [client: Client<true>]
      error: [error: Error]
      disconnect: [error: string]
      typing: void
-     message: [message: IOnMessageCreate]
+     message: [message: MSMessage]
      reply: void
      read: void
 }
@@ -127,16 +128,16 @@ export class Message {
       * @param {boolean} [reply] - Reply?
       * @returns {Promise<Message>}
       */
-     public async reply(message: IMessageContent, reply?: boolean): Promise<Message>
+     public async reply(message: MessageContent, reply?: boolean): Promise<Message>
      
      /**
       * Send message to
       * @param {any} message - Message content
       * @param {string} threadID - destination room id
-      * @param {IOptionMessage} [options] - Addional options
+      * @param {OptionMessage} [options] - Addional options
       * @returns {Promise<Message>}
       */
-     public async send(message: IMessageContent, threadID: string, options?: IOptionMessage): Promise<Message>
+     public async send(message: MessageContent, threadID: string, options?: OptionMessage): Promise<Message>
      
      /**
       * Unsend message
@@ -187,10 +188,10 @@ export class User {
      
      /**
       * Send a message to user dm
-      * @param { IMessageContent } message - Message content
+      * @param { MessageContent } message - Message content
       * @returns { Promise<Message> }
       */
-     public async dm(message: IMessageContent): Promise<Message>
+     public async dm(message: MessageContent): Promise<Message>
 }
 
 export class Me extends User {
