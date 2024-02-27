@@ -25,8 +25,7 @@ export type OptionMessage = {
 
 export type MSMessage = {
      user: User,
-     message: Message,
-     client: Client<true>
+     message: Message
 }
 
 export type MessageContent = string
@@ -36,7 +35,7 @@ export interface ClientEvents {
      error: [error: Error]
      disconnect: [error: string]
      typing: void
-     message: [message: MSMessage]
+     message: [client: Client<true>, message: MSMessage]
      reply: void
      read: void
 }

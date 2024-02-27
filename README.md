@@ -15,7 +15,7 @@ import auth from "./cookies.json"
 
 const client = new Client({ online: true })
 
-client.on(EventType.MessageCreate, async (event) => {
+client.on(EventType.MessageCreate, async (client, event) => {
      if (event.message.isMe) return
      
      //console.log(event)
