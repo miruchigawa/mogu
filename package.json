@@ -1,6 +1,6 @@
 {
   "name": "@hanaworks/mogu",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "Mogu is simple messenger api (non-official)",
   "main": "src/index.js",
   "repository": "https://github.com/miruchigawa/mogu",
